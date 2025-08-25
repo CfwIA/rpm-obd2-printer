@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:gauge="http://schemas.android.com/apk/res-auto"
+	android:background="@color/tak_black"
+	android:keepScreenOn="true"
+	tools:context=".RpmPrinter">
+
+	<!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+	<!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<megamiku.rpmprinter.gauges.TextGauge
+			android:id="@+id/RpmGauge"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_gravity="start|top"
+			gauge:initialValue="700"
+			gauge:majorNickInterval="10"
+			gauge:maxValue="6000"
+			gauge:minValue="0"
+			gauge:needleColor="@color/bright_red"
+			gauge:scaleColor="@color/scale_color"
+			gauge:totalNicks="90"
+			gauge:upperText="RPM"
+			gauge:valuePerNick="100" />
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<LinearLayout
+
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_gravity="top"
+				android:layout_weight="1"
+				android:orientation="vertical">
+
+				<TextView
+					android:id="@+id/HuileTempLabel"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:fontFamily="serif"
+					android:text="Temperature du Moteur"
+					android:textAlignment="center"
+					android:textColor="#FFFFFF"
+					android:textSize="20sp" />
+
+				<de.nitri.gauge.Gauge
+					android:id="@+id/TempGauge"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+
+					gauge:initialValue="20"
+					gauge:labelTextSize="50"
+					gauge:majorNickInterval="5"
+					gauge:maxValue="210"
+					gauge:minValue="-40"
+					gauge:scaleColor="@color/dark_green"
+					gauge:textSize="60"
+					gauge:totalNicks="30"
+					gauge:upperText="C°"
+
+					gauge:valuePerNick="10" />
+
+			</LinearLayout>
+
+			<LinearLayout
+
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:orientation="vertical">
+
+				<TextView
+					android:id="@+id/SpeedTextViewLabel"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+
+					android:fontFamily="serif"
+					android:text="Vitesse :"
+					android:textAlignment="center"
+					android:textColor="#FFFFFF"
+					android:textSize="25sp" />
+
+				<TextView
+					android:id="@+id/SpeedTextView"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="20sp"
+
+					android:fontFamily="serif"
+					android:text="@string/indisponible"
+					android:textAlignment="center"
+					android:textColor="#FFFFFF"
+					android:textSize="30sp" />
+
+				<TextView
+					android:id="@+id/ThrottleTextView"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="20sp"
+
+					android:fontFamily="serif"
+					android:text="@string/indisponible"
+					android:textAlignment="center"
+					android:textColor="#FFFFFF"
+					android:textSize="30sp" />
+
+				<Switch
+					android:id="@+id/captureSpeedButton"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:fontFamily="serif"
+					android:text="Capture de la vitesse"
+					android:textAlignment="center"
+					android:textColor="#FFFFFF"
+					android:textSize="15sp"
+					android:theme="@style/ParamSwitch" />
+
+				<Switch
+					android:id="@+id/captureTempButton"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:fontFamily="serif"
+					android:text="Capture de la Temperature"
+					android:textAlignment="center"
+					android:textColor="#FFFFFF"
+					android:textSize="15sp"
+					android:theme="@style/ParamSwitch" />
+
+				<Switch
+					android:id="@+id/hasLimitsVoice"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:fontFamily="serif"
+					android:text="Avertissement vitesse"
+					android:textAlignment="center"
+					android:textColor="#FFFFFF"
+					android:textSize="15sp"
+					android:theme="@style/ParamSwitch" />
+
+				<Switch
+					android:id="@+id/recordData"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:fontFamily="serif"
+					android:text="CVS Data capture"
+					android:textAlignment="center"
+					android:textColor="#FFFFFF"
+					android:textSize="15sp"
+					android:theme="@style/ParamSwitch"
+					/>
+
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<!--
+	<megamiku.rpmprinter.gauges.SpeedGauge
+		android:id="@+id/speedGauge"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_gravity="end|bottom"
+		gauge:upperText="Vitesse"
+		gauge:maxValue="140"
+		gauge:minValue="0"
+		gauge:totalNicks="20"
+		gauge:majorNickInterval="2"
+		gauge:valuePerNick="10"
+		gauge:initialValue="35"
+		gauge:needleColor="@color/bright_red"
+		gauge:scaleColor="@color/scale_color"
+		/> -->
+
+</FrameLayout>
